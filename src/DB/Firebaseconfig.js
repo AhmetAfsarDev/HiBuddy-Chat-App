@@ -1,41 +1,54 @@
 
   
-
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push,get } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword 
+} from "firebase/auth";
 
 const firebaseConfig = {
 
-//Firebase app data
+//Firebase data app
 
 };
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const auth = getAuth(app); 
+
 
 function Signupdatasend(username, number, password) {
-  return push(ref(database, "users"), {
-    username,
-    number,
-    password,
-    Profile:"Active",
-  });
-}
-const Loginfunction = () => {
-  console.log("Fonksiyon Çalıştı");
 
-  return get(ref(database, "users"))
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        return Object.values(snapshot.val()); 
-      } else {
-        return [];
-      }
+  const secureEmail = `${number}@hibuddy.com`;
+
+  return createUserWithEmailAndPassword(auth, secureEmail, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      
+    
+      return set(ref(database, `users/${user.uid}`), {
+        username: username,
+        number: number,
+        Profile: "Active",
+      });
+    });
+}
+
+
+const Loginfunction = (number, password) => {
+  const secureEmail = `${number}@hibuddy.com`;
+
+
+  return signInWithEmailAndPassword(auth, secureEmail, password)
+    .then(() => {
+      return true; 
     })
     .catch((error) => {
-      console.log("Giriş yapılamadı", error);
-      return [];
+      console.error("Giriş yapılamadı:", error.message);
+      return false; 
     });
 };
 
-export { app, database, Signupdatasend ,Loginfunction};
+export { app, database, auth, Signupdatasend, Loginfunction };
