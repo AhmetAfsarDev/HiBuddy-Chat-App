@@ -11,11 +11,7 @@ function App() {
 
   useEffect(() => {
     if (Logincontrol === "Online") {
-      
       setactivecomponent("Messagebox");
-      
-
-      
     }
   }, [Logincontrol]);
 
