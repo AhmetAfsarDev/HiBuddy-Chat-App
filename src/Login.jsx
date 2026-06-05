@@ -8,29 +8,21 @@ function Login({ CBFPE, Logincheckdata }) {
   const passwordRef = useRef(null);
 
   const LoginF = async () => {
-
-    const data = await Loginfunction();
-
-    if (!data || data.length === 0) {
-      console.log("Veri yok");
-      return;
-    }
-
     const Numberdata = numberRef.current;
     const Passworddata = passwordRef.current;
 
-    if (!Numberdata || !Passworddata) return;
+    if (!Numberdata || !Passworddata || !Numberdata.value.trim() || !Passworddata.value.trim()) {
+      console.log("Lütfen tüm alanları doldurunuz.");
+      return;
+    }
 
-    for (let i = 0; i < data.length; i++) {
 
-      if (Numberdata.value === data[i].number) {
+    const isSuccess = await Loginfunction(Numberdata.value, Passworddata.value);
 
-        if (Passworddata.value === data[i].password) {
-
-          Logincheckdata("Online");
-          return;
-        }
-      }
+    if (isSuccess) {
+      Logincheckdata("Online");
+    } else {
+      console.log("Hatalı telefon numarası veya şifre!");
     }
   };
 
