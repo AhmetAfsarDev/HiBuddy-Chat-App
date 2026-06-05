@@ -1,0 +1,377 @@
+/* --- ROOT VARIABLES START --- */
+:root {
+  --bg-chat: #252525;           
+  --accent-green: #D1F5B0;      
+  --bubble-outgoing: #F5F1E3;   
+  --text-primary: #1A1A1A;      
+  --text-timestamp: #6B6B6B;    
+  --text-online-label: #4A7A3A; 
+  --input-bg: #303030;          
+  --status-dot: #83D95E;        
+}
+/* --- ROOT VARIABLES END --- */
+
+/* --- GLOBAL & BODY START --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  transition: 0.2s ease-in;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+  background-color:rgb(12, 12, 12);
+  color: white;
+  min-height: 100vh;
+  
+}
+/* --- GLOBAL & BODY END --- */
+
+/* --- APP CONTAINER START --- */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* --- APP CONTAINER END --- */
+
+/* --- PAGE START --- */
+.login-page,.Signup-page {
+  width: 100%;
+  min-height: 95vh;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+/* ---  PAGE END --- */
+
+/* --- LOGIN CONTAINER START --- */
+.login-container,.Signup-container {
+  width: 100%;
+  max-width: 70rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+}
+/* ---  CONTAINER END --- */
+
+/* --- LOGO CONTAINER START --- */
+.logo-container {
+  width: 100%;
+  max-width: 21rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+  max-height: 19rem;
+  border-radius: 2rem;
+  object-fit: contain;
+}
+/* --- LOGO CONTAINER END --- */
+
+/* --- CONTAINER (FORM AREA) START --- */
+.l-container {
+  width: 100%;
+  min-width: 40rem;
+  max-width: 50rem;
+  background-color: #262625;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 1.5rem;
+  box-shadow: 0 0 8px 1px var(--accent-green);
+}
+
+.l-container input {
+  padding: 0.8rem;
+  width: 100%;
+  min-width: 40rem;
+  max-width: 30rem;
+  border: none;
+  border-bottom:0.5px solid var(--accent-green);
+  color:white;
+  background-color: transparent;
+}
+
+.l-container input:focus {
+  background-color: #dff5cd;
+  color: black;
+  outline: none;
+  border-radius: 0.5rem;
+}
+
+.l-container button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color:#dff5cd;
+  color: var(--bg-chat);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.l-container button:hover {
+  transform: scale(1.05);
+}
+/* --- LCONTAINER (FORM AREA) END --- */
+
+.MessageBox-container
+{
+  min-width: 110rem;
+  max-width: 150rem;
+  min-height: 55rem;
+  max-height: 57rem;
+  background-color: #262625;
+  border-radius: 1rem;
+  gap: 1.5rem;
+  padding: 3rem 1.5rem;
+  box-shadow: 0 0 8px 1px var(--accent-green);
+  display: flex;
+  align-items: center;
+  gap:2rem;
+}
+.Userscontainer
+{
+  width:30rem;
+  height:55rem;
+  border-radius: 1rem;
+  padding:2rem;
+  box-shadow: 0.1px 2px 2px 2px var(--accent-green);
+}
+.Userscontainer ul 
+{
+  width:25rem;
+  height:50rem;
+  border-radius: 1rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  
+}
+.Userscontainer ul li 
+{
+  margin-top:0.5rem;
+  padding:0.5rem;
+  min-height: 7ren;
+  max-height: 7rem;
+  word-wrap: break-word;
+  background-color: var(--accent-green);
+  border-radius: 1rem;
+  margin-top:1.1rem;
+}
+.Userscontainer ul li a 
+{
+  display: flex;
+  align-items: center;
+  padding-right:0.5rem;
+  box-shadow: 2px 2px 2px 2px var(--bg-chat);
+  border-radius: 1rem;
+  color:var(--accent-green);
+  color:var(--bg-chat);
+}
+.Userscontainer ul li a:hover 
+{
+  background-color: var(--bg-chat);
+  color:var(--accent-green);
+  border:none;
+  box-shadow: none;
+}
+.Userscontainer ul li a span
+{
+  margin-bottom:3.4rem;
+  width: 6rem;
+}
+.Onlinecheck
+{
+  margin-top:1rem;
+}
+.Profileinfo span 
+{
+  margin-top:3.2rem;
+  margin-left:0.2rem;
+  font-weight: bolder;
+  background-color: var(--bg-chat);
+  padding:0.3rem;
+  border-radius: 0.3rem;
+  color:var(--accent-green);
+  text-align: center;
+}
+.Userscontainer ul h3 
+{
+  background-color: var(--accent-green);
+  text-align: center;
+  color:var(--bg-chat);
+  padding:1rem;
+  font-weight: bolder;
+  font-size:large
+}
+.Profileinfo
+{
+  width:17rem;
+  height:5rem;
+  display: flex;
+  align-items: center;
+  gap:0.5rem;
+  padding-left:0.5rem;
+}
+.Userscontainer ul li img 
+{
+  width:3.5rem;
+  height:3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border:0.5px solid var(--input-bg);
+  border-radius: 0.5rem;
+  border:none;
+  background-color: var(--input-bg);
+  margin-left:1rem;
+}
+.Messagecontainer
+{
+  border-radius: 1rem;
+  width:75rem;
+  height:55rem;
+  padding:1rem;
+   box-shadow: 0.1px 2px 2px 2px var(--accent-green);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+
+.Messagewrapper
+{
+  width:73rem;
+  height:50rem;
+  background-color: red;
+  border-radius: 1rem;
+  background-image: url("../public/Mesageboxwallpaper.jpeg");
+}
+.inputcontainer
+{
+  width:73rem;
+  height:4rem;
+  margin-top:0.5rem;
+  background-color:var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+}
+.Messagelistwrapper 
+{
+  width:73rem;
+  height:auto;
+  padding:1rem;
+  color:var(--bg-chat);
+  overflow-y: scroll;
+}
+.Messagewrapper 
+{
+  overflow-y: scroll;
+  scrollbar-width: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top:1rem;
+}
+.MMessage
+{
+  padding:1rem;
+  background-color: var(--bg-chat);
+  margin-top:1rem;
+  width:45rem;
+  word-wrap: break-word;
+  line-height: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0.1px 1px 3px 1px black;
+  color:var(--accent-green);
+ text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-left:12.7rem;
+}
+
+.MMessage div
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom:1rem;
+}
+.MMessage div span
+{
+  margin-left:0.5rem;
+}
+.MMessage div img 
+{
+  width:2rem;
+  height:2rem;
+}
+.messageitembox
+{
+  padding-top:1rem;
+}
+
+.inputcontainer input,button
+{
+  padding:0.8rem;
+}
+.inputcontainer input
+{
+  width:50rem;
+  outline: none;
+  background-color: var(--bg-chat);
+   border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border:0.5px solid var(--bg-chat);
+  color:var(--bubble-outgoing);
+}
+.inputcontainer button 
+{
+  margin-left:0rem;
+  border:none;
+  padding:10.5px;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  cursor:pointer;
+  padding-left:1rem;
+  padding-right:1rem;
+  background-color: var(--bg-chat);
+  border:0.5px solid var(--bg-chat);
+
+}
+.inputcontainer button:hover 
+{
+  opacity: 0.8;
+}
+/* --- RESPONSIVE MEDIA QUERIES START --- */
+@media (max-width: 768px) {
+  .l-container {
+    padding: 2rem 1rem;
+    gap: 1.2rem;
+  }
+  
+  .logo-container img {
+    max-height: 12rem;
+  }
+  
+  .l-container input {
+    padding: 0.7rem;
+  }
+}
+/* --- RESPONSIVE MEDIA QUERIES END --- */
