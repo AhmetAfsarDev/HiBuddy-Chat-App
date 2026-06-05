@@ -8,8 +8,6 @@ function Signup({ Login }) {
   const [SPassword, Setpassword] = useState("");
 
   const SignupdataF = () => {
-
-   
     if (
       !SUsername.trim() ||
       !SNumber.trim() ||
@@ -26,6 +24,7 @@ function Signup({ Login }) {
     )
       .then(() => {
         console.log("Kayıt başarıyla eklendi");
+        Login("Login"); // Güvenli akış için başarılı kayıttan sonra giriş sayfasına yönlendirir
       })
       .catch((error) => {
         console.error("Hata:", error);
@@ -68,7 +67,7 @@ function Signup({ Login }) {
 
           <div className="Signup-info-container">
             <p>
-              Hibuddy hesabın var mı?
+              Hibuddy hesabın var mı?{" "}
               <button onClick={() => Login("Login")} type="button">
                 Giriş yap
               </button>
